@@ -63,7 +63,6 @@ website/build
 .cache-loader
 
 # Misc
-.env.local
 .env.development.local
 .env.test.local
 .env.production.local
@@ -75,3 +74,4 @@ yarn-error.log*
 firebase-debug.log
 firestore-debug.log
 ui-debug.log
+config.bat
