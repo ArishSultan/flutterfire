@@ -33,7 +33,7 @@ class FirebaseOptions {
   /// );
   /// ```
   const FirebaseOptions({
-    this.apiKey,
+    required this.apiKey,
     this.appId,
     this.messagingSenderId,
     this.projectId,
@@ -56,8 +56,7 @@ class FirebaseOptions {
         this.clientID,
     @Deprecated("Deprecated in favor of 'trackingId'") this.trackingID,
     @Deprecated("Deprecated in favor of 'messagingSenderId'") this.gcmSenderID,
-  })  : assert(apiKey != null, "'apiKey' cannot be null"),
-        assert(appId != null || googleAppID != null,
+  })  : assert(appId != null || googleAppID != null,
             "'appId' and 'googleAppID' cannot be null."),
         assert(messagingSenderId != null || gcmSenderID != null,
             "'messagingSenderId' and 'gcmSenderID' cannot be null."),
@@ -107,58 +106,58 @@ class FirebaseOptions {
   /// The Google App ID that is used to uniquely identify an instance of an app.
   ///
   /// This property is required cannot be `null`.
-  final String appId;
+  final String? appId;
 
   /// The unique sender ID value used in messaging to identify your app.
   ///
   /// This property is required cannot be `null`.
-  final String messagingSenderId;
+  final String? messagingSenderId;
 
   /// The Project ID from the Firebase console, for example "my-awesome-app".
-  final String projectId;
+  final String? projectId;
 
   /// The auth domain used to handle redirects from OAuth provides on web
   /// platforms, for example "my-awesome-app.firebaseapp.com".
-  final String authDomain;
+  final String? authDomain;
 
   /// The database root URL, for example "https://my-awesome-app.firebaseio.com."
   ///
   /// This property should be set for apps that use Firebase Database.
-  final String databaseURL;
+  final String? databaseURL;
 
   /// The Google Cloud Storage bucket name, for example
   /// "my-awesome-app.appspot.com".
-  final String storageBucket;
+  final String? storageBucket;
 
   /// The project measurement ID value used on web platforms with analytics.
-  final String measurementId;
+  final String? measurementId;
 
   /// The tracking ID for Google Analytics, for example "UA-12345678-1", used to
   /// configure Google Analytics.
   ///
   /// This property is used on iOS only.
-  final String trackingId;
+  final String? trackingId;
 
   /// The URL scheme used by iOS secondary apps for Dynamic Links.
-  final String deepLinkURLScheme;
+  final String? deepLinkURLScheme;
 
   /// The Android client ID from the Firebase Console, for example
   /// "12345.apps.googleusercontent.com."
   ///
   /// This value is used by iOS only.
-  final String androidClientId;
+  final String? androidClientId;
 
   /// The iOS client ID from the Firebase Console, for example
   /// "12345.apps.googleusercontent.com."
   ///
   /// This value is used by iOS only.
-  final String iosClientId;
+  final String? iosClientId;
 
   /// The iOS bundle ID for the application. Defaults to `[[NSBundle mainBundle] bundleID]`
   /// when not set manually or in a plist.
   ///
   /// This property is used on iOS only.
-  final String iosBundleId;
+  final String? iosBundleId;
 
   /// The iOS App Group identifier to share data between the application and the
   /// application extensions.
@@ -167,37 +166,37 @@ class FirebaseOptions {
   /// application and on the Apple Developer Portal.
   ///
   /// This property is used on iOS only.
-  final String appGroupId;
+  final String? appGroupId;
 
   @Deprecated("Deprecated in favor of 'appId'")
   // ignore: public_member_api_docs
-  final String googleAppID;
+  final String? googleAppID;
 
   @Deprecated("Deprecated in favor of 'projectId'")
   // ignore: public_member_api_docs
-  final String projectID;
+  final String? projectID;
 
   @Deprecated("Deprecated in favor of 'iosBundleId'")
   // ignore: public_member_api_docs
-  final String bundleID;
+  final String? bundleID;
 
   @Deprecated("Deprecated in favor of 'androidClientId' or 'iosClientId")
   // ignore: public_member_api_docs
-  final String clientID;
+  final String? clientID;
 
   @Deprecated("Deprecated in favor of 'trackingId'")
   // ignore: public_member_api_docs
-  final String trackingID;
+  final String? trackingID;
 
   @Deprecated("Deprecated in favor of 'messagingSenderId'")
   // ignore: public_member_api_docs
-  final String gcmSenderID;
+  final String? gcmSenderID;
 
   /// The current instance as a [Map].
-  Map<String, String> get asMap {
-    return <String, String>{
-      'apiKey': apiKey ?? googleAppID,
-      'appId': appId,
+  Map<String, String?> get asMap {
+    return <String, String?>{
+      'apiKey': apiKey,
+      'appId': appId ?? googleAppID,
       'messagingSenderId': messagingSenderId ?? gcmSenderID,
       'projectId': projectId ?? projectID,
       'authDomain': authDomain,

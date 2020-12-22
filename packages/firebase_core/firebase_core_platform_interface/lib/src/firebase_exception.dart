@@ -25,11 +25,12 @@ class FirebaseException implements Exception {
   ///   print(e.toString());
   /// }
   /// ```
-  FirebaseException(
-      {@required this.plugin,
-      @required this.message,
-      this.code = 'unknown',
-      this.stackTrace});
+  FirebaseException({
+    required this.plugin,
+    required this.message,
+    this.code = 'unknown',
+    this.stackTrace,
+  });
 
   /// The plugin the exception is for.
   ///
@@ -49,7 +50,7 @@ class FirebaseException implements Exception {
 
   /// The stack trace which provides information to the user about the call
   /// sequence that triggered an exception
-  final StackTrace stackTrace;
+  final StackTrace? stackTrace;
 
   @override
   bool operator ==(dynamic other) {

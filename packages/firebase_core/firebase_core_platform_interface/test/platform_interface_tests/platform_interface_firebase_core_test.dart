@@ -34,18 +34,23 @@ void main() {
 }
 
 class ImplementsFirebasePlatform implements FirebasePlatform {
-  @override
-  Future<FirebaseAppPlatform> initializeApp(
-          {String name, FirebaseOptions options}) =>
-      null;
+  late final FirebaseAppPlatform _app;
 
   @override
-  FirebaseAppPlatform app([String name = defaultFirebaseAppName]) {
-    return null;
-  }
+  Future<FirebaseAppPlatform> initializeApp({
+    String? name,
+    FirebaseOptions? options,
+  }) async =>
+      _app = FirebaseAppPlatform(
+        name ?? '',
+        options ?? FirebaseOptions(apiKey: ''),
+      );
 
   @override
-  List<FirebaseAppPlatform> get apps => null;
+  FirebaseAppPlatform app([String name = defaultFirebaseAppName]) => _app;
+
+  @override
+  List<FirebaseAppPlatform> get apps => [_app];
 }
 
 class ExtendsFirebasePlatform extends FirebasePlatform {}
